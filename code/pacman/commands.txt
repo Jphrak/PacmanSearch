@@ -1,0 +1,7 @@
+python pacman.py -l tinyMaze -p SearchAgent -a fn=ucs
+python pacman.py -l mediumMaze -z .5 -p SearchAgent -a fn=ucs
+python pacman.py -l bigMaze -p SearchAgent -a fn=ucs -z .5
+
+python pacman.py -l tinyCorners -p SearchAgent -a fn=ucs,prob=CornersProblem
+python pacman.py -l mediumCorners -p SearchAgent -a fn=ucs,prob=CornersProblem
+python pacman.py -l bigCorners -p SearchAgent -a fn=ucs,prob=CornersProblem -z .5

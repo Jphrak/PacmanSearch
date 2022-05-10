@@ -676,9 +676,148 @@ if __name__ == '__main__':
 
     > python pacman.py --help
     """
-    args = readCommand( sys.argv[1:] ) # Get game components based on input
-    runGames( **args )
+
+#--------------------------------------------------------------------------------------------#
+#                 Main Menu
+#--------------------------------------------------------------------------------------------#
+    
+    #create a mainmenu loop here so user can interact and choose options instead of typing out command lines
+    #small test, hopefully no crash
+    ans = True
+    while ans:
+        print("\n--------------------------------------------------------")
+        print("-------------CSCE 4263 ADV DATA STRUCT FINAL------------") 
+        print("""
+        1.Play Pacman (original from UC Berkeley)
+        2.Beat Pacman (With Search Algorithms)
+        3.Exit
+        """)
+        print("--------------------------------------------------------")
+        print("--------------------------------------------------------")
+        
+        
+        ans = raw_input("Enter option:[1-3]")
+
+
+#--------------------------------------------------------------------------------------------#
+#                 Default Pacman with map layout options
+#--------------------------------------------------------------------------------------------#
+
+        if ans == "1":
+            print("Choose the map layout...")
+            print("""
+        1.Default (with Ghosts)
+        2.tiny
+        3.medium
+        4.big
+        5.Go back
+            """)
+            mapChoice = raw_input()
+            if mapChoice == "1":
+                args = []
+                args = readCommand(args)
+                runGames( **args )
+            elif mapChoice == "2":
+                args = ['-l', 'tinyMaze']
+                args = readCommand(args)
+                runGames( **args )
+    
+            elif mapChoice == "3":
+                args = ['-l', 'mediumMaze']
+                args = readCommand(args)
+                runGames( **args )
+            elif mapChoice == "4":
+                args = ['-l', 'bigMaze']
+                args = readCommand(args)
+                runGames( **args )
+            elif mapChoice == "5":
+                pass
+            else:
+                print("\nNot a choice, try again.")
+#--------------------------------------------------------------------------------------------#
+#             Search Algorithm option
+#--------------------------------------------------------------------------------------------#            
+        elif ans == "2":
+            print("Choose the map layout...")
+            print("""
+        1.medium
+        2.big
+        3.Main Menu
+            """)
+            choice = raw_input()
+#--------------------------------------------------------------------------------------------#
+            #Medium Maze for Algorithm
+            if choice == "1":
+                print("Choose the Search Algorithm")
+                print("""
+        1.breadthFirstSearch
+        2.depthFirstSearch
+        3.Main Menu
+            """)
+                
+                searchAlg = raw_input()
+                #bfs for medium
+                if searchAlg == "1":
+                    args = ['-l', 'mediumMaze', '-p', 'SearchAgent', '-a', 'fn=bfs']
+                    args = readCommand(args)
+                    runGames( **args )
+                #dfs for medium
+                elif searchAlg == "2":
+                    args = ['-l', 'mediumMaze', '-p', 'SearchAgent', '-a', 'fn=dfs']
+                    args = readCommand(args)
+                    runGames( **args )
+                #mainmenu
+                elif searchAlg == "3":
+                    pass
+                else:
+                    print("\n Not a choice, choose again.")
+#--------------------------------------------------------------------------------------------#
+            #Big Maze for Algorithm
+            elif choice == "2":
+                print("Choose the Search Algorithm")
+                print("""
+        1.breadthFirstSearch
+        2.depthFirstSearch
+        3.Main Menu
+            """)
+                searchAlg = raw_input()
+                
+                #bfs for Big
+                if searchAlg == "1":
+                    args = ['-l', 'bigMaze', '-p', 'SearchAgent', '-a', 'fn=bfs']
+                    args = readCommand(args)
+                    runGames( **args )
+                #dfs for Big
+                elif searchAlg == "2":
+                    args = ['-l', 'bigMaze', '-p', 'SearchAgent', '-a', 'fn=dfs']
+                    args = readCommand(args)
+                    runGames( **args )
+                #mainmenu
+                elif searchAlg == "3":
+                    pass
+                else:
+                    print("\n Not a choice, choose again.")
+#--------------------------------------------------------------------------------------------#
+            #Take user Back to the Main Menu
+            elif choice == "3":
+                pass
+            #Error Checking
+            else:
+                print("\nNot a choice, try again.")
+#--------------------------------------------------------------------------------------------#
+
+#--------------------------------------------------------------------------------------------#
+#             Exit Loop option
+#--------------------------------------------------------------------------------------------#
+        elif ans == "3":
+            print("Goodbye!")
+            ans = None
+        else:
+            print("\n Not a choice, choose again.")
+    # print( sys.argv[1: ] )
+    # args = readCommand( sys.argv[1:] ) # Get game components based on input
+    # runGames( **args )
 
     # import cProfile
     # cProfile.run("runGames( **args )")
-    pass
+    #pass

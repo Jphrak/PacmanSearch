@@ -1,6 +1,14 @@
 # PacmanSearch using Breadth/Depth First Search Algorithm
+![bfs pacman](https://user-images.githubusercontent.com/60335543/173474584-f35df935-3b1f-4acc-940c-3a1abbf99603.png)
+<br>***Pacman exploring a maze using Breadth First Search*** <br><br>
+![dfs pacman](https://user-images.githubusercontent.com/60335543/173474601-44b50bfd-d055-4fc4-b5b2-9369c570cbe9.png)
+<br>***Pacman exploring a maze using Depth First Search***
+
+---
 Code framework provided by [**UC Berkeley CS188 Intro to AI**](http://ai.berkeley.edu/project_overview.html). <br><br>
 Program project required implementation of searching/graphing algorithm; specifically, Depth First Search and Breadth First Search. Most edits made to the framework can be found in the files: search.py and pacman.py. 
+
+
 
 ## Installation
 - Python 2.7 is required to run this program.
